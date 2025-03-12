@@ -1,5 +1,13 @@
 package com.example.micacharrito.repositorio;
 
-public interface coches_Repositorio {
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.micacharrito.modelo.coches;
+
+public interface coches_Repositorio extends JpaRepository<coches, String>{
+
+	
 
 }
