@@ -8,6 +8,8 @@ import com.example.micacharrito.modelo.coches;
 
 public interface coches_Repositorio extends JpaRepository<coches, String>{
 
+	List<coches> findByEstado(String estado);
+
 	
 
 }

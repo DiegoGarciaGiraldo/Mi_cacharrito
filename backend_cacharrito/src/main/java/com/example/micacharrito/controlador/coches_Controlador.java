@@ -26,8 +26,11 @@ public class coches_Controlador {
 	private coches_Repositorio repcoches;
 	
 	@GetMapping("/ListaCoches")
-	public List<coches> listacoches(){
-		return repcoches.findAll();
+	public List<coches> listacoches(
+			@RequestParam String estado
+			){
+		return this.repcoches.findByEstado(estado);
+		
 	}
 	
 	
