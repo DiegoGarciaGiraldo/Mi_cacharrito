@@ -25,25 +25,14 @@ public class usuario_Admin_Controlador {
 	    private usuario_Admin_Repositorio repUserAdmin;
 
 	    @PostMapping("/login")
-	    public String login(@RequestParam String usuario, @RequestParam String password, HttpSession session) {
+	    public String login(@RequestParam String usuario, @RequestParam String password) {
 	        Optional<usuario_Admin> user = repUserAdmin.findByUsuario(usuario);
 
 	        if (user.isPresent() && user.get().getPassword().equals(password)) {
-	            session.setAttribute("admin", user.get()); // Guardar en sesión
 	            return "Inicio de sesión exitoso";
 	        }
 	        return "Credenciales incorrectas";
 	    }
-
-	    @PostMapping("/logout")
-	    public String logout(HttpSession session) {
-	        session.invalidate(); // Cerrar sesión
-	        return "Sesión cerrada correctamente";
-	    }
-
-	    @GetMapping("/check")
-	    public boolean isAuthenticated(HttpSession session) {
-	        return session.getAttribute("admin") != null;
-	    }
-
+	    
+	
 }

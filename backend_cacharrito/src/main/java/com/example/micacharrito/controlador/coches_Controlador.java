@@ -38,9 +38,10 @@ public class coches_Controlador {
 	
 	@GetMapping("/ListaCoches")
 	public List<coches> listacoches(
-			@RequestParam String estado
+			@RequestParam String tipo
 			){
-		return this.repcoches.findByEstado(estado);
+		
+		return this.repcoches.findByEstadoAndTipoVeh("disponible",tipo);
 		
 	}
 	
@@ -49,12 +50,17 @@ public class coches_Controlador {
     public List<coches> obtenerVehiculosAlquilados(@RequestParam String usuario, @RequestParam String password) {
         if (!esAdministrador(usuario, password)) {
             throw new RuntimeException("Acceso denegado. Solo administradores pueden ver esta lista.");
+        }else {
+        	
+        	return repcoches.findByEstado("Alquilado");
+        	
         }
-        return repcoches.findByEstado("Alquilado");
+        
     }
 
  
     // Validar si el usuario es administrador
+    @GetMapping("/validar")
     private boolean esAdministrador(String usuario, String password) {
         return repAdmin.findByUsuarioAndPassword(usuario, password).isPresent();
     }
