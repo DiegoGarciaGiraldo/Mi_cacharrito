@@ -20,7 +20,7 @@ public class administrador_Controlador {
 	 @Autowired
 	    private administrador_Repositorio repAdministrador;
         
-	    @GetMapping("/perfil")
+	    /*@GetMapping("/perfil")
 	    public Optional<administrador> obtenerPerfil(HttpSession session) {
 	        Long IdPerfil = (Long) session.getAttribute("admin");
 
@@ -28,7 +28,7 @@ public class administrador_Controlador {
 	            return repAdministrador.findByIdPerfil(IdPerfil);
 	        }
 	        return Optional.empty();
-	    }
+	    }*/
 }
 
 	
