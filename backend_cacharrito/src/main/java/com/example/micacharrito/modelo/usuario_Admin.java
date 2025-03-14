@@ -1,5 +1,7 @@
 package com.example.micacharrito.modelo;
 
+import java.util.Optional;
+
 import jakarta.persistence.Column; // establece los atributos de la entidad
 import jakarta.persistence.Entity; // establece la entidad en la base de datos
 import jakarta.persistence.GeneratedValue;
@@ -58,6 +60,8 @@ public class usuario_Admin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
 	
 	
 	
