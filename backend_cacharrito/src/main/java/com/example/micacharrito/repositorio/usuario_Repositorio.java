@@ -1,5 +1,5 @@
 package com.example.micacharrito.repositorio;
 
-public interface usuario_Controlador {
+public interface usuario_Repositorio {
 
 }
