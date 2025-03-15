@@ -16,7 +16,7 @@ export class VistaPrincipalComponent {
   
     constructor(private route:Router){}
   
-    componenteActual='';
+    componenteActual='principal';
   
     mostrarComponente(componente: string) {
       this.componenteActual = componente;
