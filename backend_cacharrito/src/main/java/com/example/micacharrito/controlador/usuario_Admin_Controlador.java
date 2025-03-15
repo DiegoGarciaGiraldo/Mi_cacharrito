@@ -24,14 +24,14 @@ public class usuario_Admin_Controlador {
 	 @Autowired
 	    private usuario_Admin_Repositorio repUserAdmin;
 
-	    @PostMapping("/login")
-	    public String login(@RequestParam String usuario, @RequestParam String password) {
+	    @GetMapping("/login")
+	    public boolean login(@RequestParam String usuario, @RequestParam String password) {
 	        Optional<usuario_Admin> user = repUserAdmin.findByUsuario(usuario);
 
 	        if (user.isPresent() && user.get().getPassword().equals(password)) {
-	            return "Inicio de sesión exitoso";
+	            return true;
 	        }
-	        return "Credenciales incorrectas";
+	        return false;
 	    }
 	    
 	
