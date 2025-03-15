@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavComponent } from './nav.component';
+import { VistaPrincipalComponent } from './vista-principal.component';
 
-describe('NavComponent', () => {
-  let component: NavComponent;
-  let fixture: ComponentFixture<NavComponent>;
+describe('VistaPrincipalComponent', () => {
+  let component: VistaPrincipalComponent;
+  let fixture: ComponentFixture<VistaPrincipalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavComponent]
+      imports: [VistaPrincipalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(NavComponent);
+    fixture = TestBed.createComponent(VistaPrincipalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

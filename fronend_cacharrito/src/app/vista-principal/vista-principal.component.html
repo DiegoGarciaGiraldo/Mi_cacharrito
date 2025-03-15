@@ -1,0 +1,65 @@
+
+<div *ngIf="componenteActual === 'principal'">
+
+    <div id="presentacion">
+
+
+    </div>
+    
+    <div id="contenido">
+    
+        <div id="logueo">
+    
+            <button class="botonesloguin" id="btn1" >Usuario</button>
+            <button class="botonesloguin" id="btn2">Administrador</button>
+    
+    
+    
+            <section id="usuario">
+    
+                <div class="mb-3">
+    
+                    <label for="basic-url" class="form-label">Ingresar Usuario</label>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+    
+                    <label for="basic-url" class="form-label">Ingresar Contraseña</label>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+                    
+                </div>
+    
+                <div>
+    
+                    <button type="button" class="btn btn-primary">Ingresar</button>
+    
+                </div>
+    
+    
+                <p>¿Aun no estas registrado?</p>
+                <nav>
+                    <a href="/registro">Registrarme</a>
+                </nav>
+                
+                <button type="button" (click)="mostrarComponente('registro')">Registrarme</button>
+    
+                
+                
+    
+    
+            </section>
+    
+            <!-- seccion que modifica diego-->
+            <section id="admin">
+    
+            </section>
+        </div>
+        
+    </div>
+
+</div><!--fin com-inicio-->
+
+
+
+<app-registro-usuario *ngIf="componenteActual === 'registro'"></app-registro-usuario>
+
+
+
