@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../servicios/auth.service';
+import { Administrador } from '../servicios/Administrador.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,29 +15,15 @@ export class LoginAdministradorComponent {
   password = '';
   mensaje = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private AdminService: Administrador) {}
 
-  abrirModal(){
-    const modal = document.getElementById("admin");
-    if(modal)
-      modal.style.display = 'block';
-  }
+  Ingresar(){
+    this.AdminService.loginAdmin(this.usuario, this.password).subscribe(data => {
+      alert(data);
+    })
 
-  cerrarModal() {
-    const modal = document.getElementById("admin")
-    if (modal) {
-      modal.style.display = 'none';
-    }
-
-  }
-
-  SesionIniciada() {
-    if (this.usuario === 'kaizen123' && this.password === '12345'){
-      alert('Inicio de sesión exitoso');
-      this.router.navigate(['/dashboard']); // Redirigir a otra página
-    } else {
-      alert('Credenciales incorrectas');
-    }
   }
 
 }
+
+
