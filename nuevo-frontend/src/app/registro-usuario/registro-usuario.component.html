@@ -16,31 +16,39 @@
 
             <div class="mb-3">
         
-                <label for="basic-url" class="form-label">Cedula</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-                <label for="basic-url" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-                <label for="basic-url" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-                <label for="basic-url" class="form-label">Correo</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-                <label for="basic-url" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-                <label for="basic-url" class="form-label">Licencia</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-                <label for="basic-url" class="form-label">Categoria</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
-                <label for="basic-url" class="form-label">Ingresar Contraseña</label>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+                <label for="" class="form-label">Cedula</label>
+                <input type="text" class="form-control"  aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="cedula" name="cedula">
+
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" class="form-control"  aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="nombre" name="nombre">
+
+                <label for="" class="form-label">Apellidos</label>
+                <input type="text" class="form-control"  aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="apellidos" name="apellidos">
+
+                <label for="" class="form-label">Correo</label>
+                <input type="text" class="form-control"  aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="correo" name="correo">
+
+                <label for="" class="form-label">Telefono</label>
+                <input type="text" class="form-control"  aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="telefono" name="telefono">
+
+                <label for="" class="form-label">fecha de expedicion Licencia</label>
+                <input type="date" class="form-control"  aria-describedby="basic-addon3 basic-addon4" (change)="formatearfecha()" [(ngModel)]="licencia" name="licencia">
+
+                <label for="" class="form-label">vigencia de Licencia</label>
+                <input type="date" class="form-control"  aria-describedby="basic-addon3 basic-addon4" (change)="formatearfecha()" [(ngModel)]="vigencia" name="vigencia">
+
+                <label for="" class="form-label">Categoria</label>
+                <input type="text" class="form-control"  aria-describedby="basic-addon3 basic-addon4"  [(ngModel)]="categoria" name="categoria">
+
+                <label for="" class="form-label">Ingresar Contraseña</label>
+                <input type="password" class="form-control"  aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="clave" name="clave">
                 
             </div>
         </form>
 
-        <button id="btnRegistro">Registrarme</button>
+        <button id="btnRegistro" (click)="registrar()">Registrarme</button>
 
     </div>
-
-   
 
     <button type="button" id="volver" (click)="volver()" > volver</button>
 </div>

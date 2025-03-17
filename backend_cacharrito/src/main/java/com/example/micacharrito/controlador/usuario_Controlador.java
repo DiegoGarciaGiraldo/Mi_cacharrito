@@ -20,11 +20,33 @@ public class usuario_Controlador {
 	@Autowired
 	private usuario_Repositorio repusu;
 	
+	
+	// funcion para encontrar un usuario y su clave
 	@GetMapping("/validacion")
 	public boolean validacionloguin(@RequestParam String usuario, @RequestParam String clave) {
 		
 		return this.repusu.findByIdentificacionAndContrasenaC(usuario,clave).isPresent();
 		
 	}
+	
+	// funcion para registrar un nuevo usuario
+	
+	public usuario crear_Usuario(@RequestParam String usuario, @RequestParam String clave) {
+		
+		try {
+		
+		usuario nuevo = new usuario(usuario, clave);
+		
+		return this.repusu.save(nuevo);
+		
+		
+		}catch (Exception e) {
+			
+			return null;
+				
+		}
+	}
+	
+	
 
 }

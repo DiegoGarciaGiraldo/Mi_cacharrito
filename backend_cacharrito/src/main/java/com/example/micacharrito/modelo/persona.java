@@ -36,27 +36,32 @@ public class persona {
 		
 		@Temporal(TemporalType.DATE) //para determinar si usa horas o fechas o ambas
 		//@DateTimeFormat(iso = ISO.DATE) //para guardar solo la fecha
-		@DateTimeFormat(pattern = "dd/MM/yy")//Lo mismo pero se cambia el formato
+		@DateTimeFormat(pattern = "dd/MM/yyyy")//Lo mismo pero se cambia el formato
 		@Column(name="FechaExpedicion")
 		private Date fechaExpedicion;
 		
 		
 		@Temporal(TemporalType.DATE) //para determinar si usa horas o fechas o ambas
 		//@DateTimeFormat(iso = ISO.DATE) //para guardar solo la fecha
-		@DateTimeFormat(pattern = "dd/MM/yy")//Lo mismo pero se cambia el formato
+		@DateTimeFormat(pattern = "dd/MM/yyyy")//Lo mismo pero se cambia el formato
 		@Column(name="Vigencia")
 		private Date vigencia;
 		
 		@Column(name="Email")
 		private String email;
+		
+		@Column(name="Categoria")
+		private String categoria;
 
 		public persona() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
+		
+
 		public persona(String numeroTelefonico, com.example.micacharrito.modelo.usuario usuario, String nombre,
-				String apellido, Date fechaExpedicion, Date vigencia, String email) {
+				String apellido, Date fechaExpedicion, Date vigencia, String email, String categoria) {
 			super();
 			this.numeroTelefonico = numeroTelefonico;
 			this.usuario = usuario;
@@ -65,7 +70,10 @@ public class persona {
 			this.fechaExpedicion = fechaExpedicion;
 			this.vigencia = vigencia;
 			this.email = email;
+			this.categoria = categoria;
 		}
+
+
 
 		public String getNumeroTelefonico() {
 			return numeroTelefonico;
@@ -122,6 +130,20 @@ public class persona {
 		public void setEmail(String email) {
 			this.email = email;
 		}
+
+
+
+		public String getCategoria() {
+			return categoria;
+		}
+
+
+
+		public void setCategoria(String categoria) {
+			this.categoria = categoria;
+		}
+		
+		
 		
 		
 
