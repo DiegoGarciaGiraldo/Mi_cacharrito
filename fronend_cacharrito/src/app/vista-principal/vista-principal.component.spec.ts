@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignInComponent } from './sign-in.component';
+import { VistaPrincipalComponent } from './vista-principal.component';
 
-describe('SignInComponent', () => {
-  let component: SignInComponent;
-  let fixture: ComponentFixture<SignInComponent>;
+describe('VistaPrincipalComponent', () => {
+  let component: VistaPrincipalComponent;
+  let fixture: ComponentFixture<VistaPrincipalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SignInComponent]
+      imports: [VistaPrincipalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SignInComponent);
+    fixture = TestBed.createComponent(VistaPrincipalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

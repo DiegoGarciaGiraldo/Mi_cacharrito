@@ -1,0 +1,73 @@
+#presentacion{
+    background: linear-gradient(to left, white, transparent), url("../../../../Recursos_visuales/fondo_principal_remastered.jpg");
+    background-size: contain;
+    float: left;
+    height: 100vh;
+    width: 60%;
+}
+
+#contenido{
+    background-color: white;
+    float: right;
+    height: 100vh;
+    width: 40%;
+    position: relative;
+}
+
+#principal{
+    display: block;
+}
+
+/*loguin de ususario y administrador*/
+
+#logueo{
+
+    position: absolute;
+    background-color: rgb(158, 158, 158);
+    width: 80%;
+    height: 75vh;
+
+    border-radius: 5dvh;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+nav{
+    background-color: black;
+    width: 100%;
+    height: 8vh;
+}
+
+/*botones del logueo*/
+.botonesloguin{
+    background-color: aqua;
+    border: none;
+    width: 50%;
+    text-align: center;
+    height: 8vh;
+}
+
+#btn1{
+    border-radius: 5dvh 0dvh 0dvh 0dvh;
+}
+
+#btn2{
+    border-radius: 0dvh 5dvh 0dvh 0dvh;
+}
+
+
+
+/*secciones*/
+#usuario{
+    padding: 10% 5%;
+    text-align: center;
+    align-items: center;
+    display: block;
+}
+
+#admin{
+    display: none;
+}

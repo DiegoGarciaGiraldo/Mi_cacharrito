@@ -1,0 +1,65 @@
+
+<div  id="principal">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav>
+
+    <div id="presentacion">
+
+
+    </div>
+    
+    <div id="contenido">
+    
+        <div id="logueo">
+    
+            <button class="botonesloguin" id="btn1" >Usuario</button>
+            <button class="botonesloguin" id="btn2">Administrador</button>
+    
+    
+    
+            <section id="usuario">
+    
+                <div class="mb-3">
+    
+                    <label for="in-usuario" class="form-label">Ingresar Usuario</label>
+                    <input type="text" class="form-control" id="in-usuario" aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="usuario">
+    
+                    <label for="basic-url" class="form-label">Ingresar Contraseña</label>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="clave">
+                    
+                </div>
+    
+                <div>
+    
+                    <button type="button" class="btn btn-primary" (click)="validacion_usuario()" >Ingresar</button>
+    
+                </div>
+    
+    
+                <p>¿Aun no estas registrado?</p>
+                
+                <button type="button" (click)="registro()" >Registrarme</button>
+                
+    
+                
+                
+    
+    
+            </section>
+    
+            
+            <section id="admin">
+    
+            </section>
+        </div>
+        
+    </div>
+
+</div>
