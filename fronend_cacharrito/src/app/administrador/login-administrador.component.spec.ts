@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoginAdministradorComponent } from './login-administrador.component';
 
-describe('LoginAdministradorComponent', () => {
+describe('AdministradorComponent', () => {
   let component: LoginAdministradorComponent;
   let fixture: ComponentFixture<LoginAdministradorComponent>;
 

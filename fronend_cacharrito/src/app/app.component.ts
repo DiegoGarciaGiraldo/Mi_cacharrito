@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { LoginAdministradorComponent } from "./administrador/login-administrador.component";
+import { LoginAdministradorComponent } from './administrador/login-administrador.component';
 import { NavComponent } from "./Principal/nav.component";
 import { SignInComponent } from './Registro-Usuario/sign-in.component';
 
