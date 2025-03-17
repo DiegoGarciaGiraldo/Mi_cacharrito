@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { PersonaService } from '../servicios/persona.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
-import moment from 'moment';
 
 @Component({
   selector: 'app-registro-usuario',

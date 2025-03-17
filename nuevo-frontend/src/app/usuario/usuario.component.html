@@ -15,4 +15,101 @@
         </ul>
       </div>
     </div>
-  </nav>
+</nav>
+
+
+
+<section id="ver_vehiculos">
+
+  <h2>ver vehiculos disponibles</h2>
+
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">seleccionar vehiculo</label>
+    <select class="form-select" id="inputGroupSelect01" [(ngModel)]="tipo">
+      <option selected>seleccionar</option>
+      <option value="1">Automovil</option>
+      <option value="2">Camioneta</option>
+      <option value="3">Campero</option>
+      <option value="4">Microbus</option>
+      <option value="5">Motocicleta</option>
+    </select>
+
+    <button class="btn btn-outline-secondary" type="button" (click)="ver_coches()">Seleccionar</button>
+  </div>
+
+
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <td>Placa</td>
+        <td>Color</td>
+        <td>tipo</td>
+        <td>Valor por dia</td>
+        <td>Accion</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of coches">
+        <td>{{item.placa}}</td>
+        <td>{{item.color}}</td>
+        <td>{{item.tipoVeh}}</td>
+        <td>{{item.valorAlq}}</td>
+        <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="alquilar_coche(item.placa)"> Alquilar </button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Alquilar vehiculo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <h4>esta a punto de alquilar el vehiculo</h4>
+
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+              <td>Placa</td>
+              <td>Color</td>
+              <td>tipo</td>
+              <td>Valor por dia</td>
+            </tr>
+          </thead>
+          <tbody>
+      
+            <tr *ngIf="coche">
+              <td>{{coche.placa}}</td>
+              <td>{{coche.color}}</td>
+              <td>{{coche.tipoVeh}}</td>
+              <td>{{coche.valorAlq}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Ingrese las fecha en que alquilara el coche</p>
+        <label for="" class="form-label">Fecha de inicio</label>
+        <input type="date" class="form-control"  aria-describedby="basic-addon3 basic-addon4" (change)="formatearfecha()" (change)="calcular_dias()" [(ngModel)]="finicio" name="vigencia">
+
+        <label for="" class="form-label">Fecha de entrega</label>
+        <input type="date" class="form-control"  aria-describedby="basic-addon3 basic-addon4" (change)="formatearfecha()"  (change)="calcular_dias()" [(ngModel)]="ffin" name="vigencia">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Alquilar</button>
+      </div>
+    </div>
+  </div>
+</div>
