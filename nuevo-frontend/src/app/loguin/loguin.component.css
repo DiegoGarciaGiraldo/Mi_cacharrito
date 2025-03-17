@@ -2,14 +2,14 @@
     background: linear-gradient(to left, white, transparent), url("../../../../Recursos_visuales/fondo_principal_remastered.jpg");
     background-size: contain;
     float: left;
-    height: 100vh;
+    height: 90vh;
     width: 60%;
 }
 
 #contenido{
     background-color: white;
     float: right;
-    height: 100vh;
+    height: 90vh;
     width: 40%;
     position: relative;
 }
