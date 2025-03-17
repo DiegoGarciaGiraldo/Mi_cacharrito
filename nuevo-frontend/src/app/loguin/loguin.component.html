@@ -56,6 +56,25 @@
     
             
             <section id="admin">
+
+                <div class="mb-3">
+    
+                    <label for="in-admin" class="form-label">Ingresar como Administrador</label>
+                    <input type="text" class="form-control" id="in-usuario" aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="usuario">
+    
+                    <label for="basic-url" class="form-label">Ingresar Contraseña</label>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="password">
+                    
+                </div>
+
+                <div>
+    
+                    <button type="button" class="btn btn-primary" (click)="validacion_admin()" >Ingresar</button>
+    
+                </div>
+                
+
+
     
             </section>
         </div>

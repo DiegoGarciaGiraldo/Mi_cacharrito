@@ -59,4 +59,27 @@ export class LoguinComponent {
     this.router.navigate(['/usuario'])
   }
 
+
+
+  validacion_admin(){
+
+    this.servicio.login_Admin(this.usuario,this.clave).subscribe(dato=>{
+
+      if(dato === true){
+
+        this.ventana_usuario()
+
+
+
+      }else{
+        alert("Error en las credenciales")
+      }
+
+    },error=>{
+      alert("error de conexion con el servidor")
+      console.log(error)
+    })
+
+  }
+
 }
