@@ -13,38 +13,41 @@ public class usuario {
 	
 	
 		@Id
-		@Column(name="Identificacion")
-		private String Identificacion;
+		@Column(name="identificacion")
+		private String identificacion;
 		
-		@Column(name="ContraseñaC")
-		private String ContraseñaC;
+		@Column(name="contrasenaC")
+		private String contrasenaC;
 
 		public usuario() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public usuario(String identificacion, String contraseñaC) {
+		public usuario(String identificacion, String contrasenaC) {
 			super();
-			Identificacion = identificacion;
-			ContraseñaC = contraseñaC;
+			this.identificacion = identificacion;
+			this.contrasenaC = contrasenaC;
 		}
 
 		public String getIdentificacion() {
-			return Identificacion;
+			return identificacion;
 		}
 
 		public void setIdentificacion(String identificacion) {
-			Identificacion = identificacion;
+			this.identificacion = identificacion;
 		}
 
-		public String getContraseñaC() {
-			return ContraseñaC;
+		public String getContrasenaC() {
+			return contrasenaC;
 		}
 
-		public void setContraseñaC(String contraseñaC) {
-			ContraseñaC = contraseñaC;
+		public void setContrasenaC(String contrasenaC) {
+			this.contrasenaC = contrasenaC;
 		}
+		
+		
+
 		
 	
 
