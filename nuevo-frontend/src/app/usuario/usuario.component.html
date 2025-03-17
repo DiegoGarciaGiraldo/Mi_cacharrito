@@ -15,4 +15,52 @@
         </ul>
       </div>
     </div>
-  </nav>
+</nav>
+
+
+
+<section id="ver_vehiculos">
+
+  <h2>ver vehiculos disponibles</h2>
+
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">seleccionar vehiculo</label>
+    <select class="form-select" id="inputGroupSelect01" [(ngModel)]="tipo">
+      <option selected>seleccionar</option>
+      <option value="1">Automovil</option>
+      <option value="2">Camioneta</option>
+      <option value="3">Campero</option>
+      <option value="4">Microbus</option>
+      <option value="5">Motocicleta</option>
+    </select>
+
+    <button class="btn btn-outline-secondary" type="button" (click)="ver_coches()">Seleccionar</button>
+  </div>
+
+
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <td>Placa</td>
+        <td>Color</td>
+        <td>tipo</td>
+        <td>Valor por dia</td>
+        <td>Accion</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of coches">
+        <td>{{item.placa}}</td>
+        <td>{{item.color}}</td>
+        <td>{{item.tipoVeh}}</td>
+        <td>{{item.valorAlq}}</td>
+        <td> <button> Alquilar </button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</section>
