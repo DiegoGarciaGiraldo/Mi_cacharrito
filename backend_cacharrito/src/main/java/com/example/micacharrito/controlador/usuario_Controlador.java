@@ -20,12 +20,22 @@ public class usuario_Controlador {
 	@Autowired
 	private usuario_Repositorio repusu;
 	
+	public usuario logueado ;
 	
 	// funcion para encontrar un usuario y su clave
 	@GetMapping("/validacion")
 	public boolean validacionloguin(@RequestParam String usuario, @RequestParam String clave) {
 		
-		return this.repusu.findByIdentificacionAndContrasenaC(usuario,clave).isPresent();
+		if(this.repusu.findByIdentificacionAndContrasenaC(usuario,clave).isPresent() == true) {
+			logueado =this.repusu.findByIdentificacionAndContrasenaC(usuario,clave).get();		
+			
+			
+			return true;
+			
+		}else {
+			return false;
+		}
+		
 		
 	}
 	
@@ -49,4 +59,12 @@ public class usuario_Controlador {
 	
 	
 
+	// funcion que toma el usuario ya logueado
+	
+	@GetMapping("/logueo")
+	public usuario loguin() {			
+			return logueado;
+	}
+	
+	
 }

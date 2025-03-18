@@ -7,10 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Ver Vehiculo</a>
+            <a class="nav-link" (click)="verAlquilar()">Ver Vehiculo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Mis alquileres</a>
+            <a class="nav-link" (click)="verlista()">Mis alquileres</a>
           </li>
         </ul>
       </div>
@@ -18,8 +18,7 @@
 </nav>
 
 
-
-<section id="ver_vehiculos">
+<section  *ngIf="muestraAlquilar">
 
   <h2>ver vehiculos disponibles</h2>
 
@@ -30,8 +29,8 @@
       <option value="1">Automovil</option>
       <option value="2">Camioneta</option>
       <option value="3">Campero</option>
-      <option value="4">Microbus</option>
       <option value="5">Motocicleta</option>
+      <option value="4">Microbus</option>
     </select>
 
     <button class="btn btn-outline-secondary" type="button" (click)="ver_coches()">Seleccionar</button>
@@ -62,6 +61,38 @@
   </table>
 
 
+
+</section>
+
+<section *ngIf="muestralista">
+  <h2>Mis solicitudes pendientes</h2>
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <td>Alquiler #</td>
+        <td>coche placa</td>
+        <td>Fecha de inicio</td>
+        <td>Fecha final</td>
+        <td>Estado Alquiler</td>
+        <td>Valor del alquiler</td>
+        <td>Cancelar alquiler</td>
+      </tr>
+
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of alquileres">
+        <td>{{item.numeroAlquiler}}</td>
+        <td>{{item.coche.placa}}</td>
+        <td>{{item.fechaInicio}}</td>
+        <td>{{item.fechaFinal}}</td>
+        <td>{{item.estadoAlq}}</td>
+        <td>{{item.costoTotal}}</td>
+        <td><button class="btn btn-primary" (click)="eliminar_alquiler(item.numeroAlquiler,item.coche.placa)">cancelar alquiler</button></td>
+      </tr>
+    </tbody>
+  </table>
 
 </section>
 
@@ -105,10 +136,12 @@
         <label for="" class="form-label">Fecha de entrega</label>
         <input type="date" class="form-control"  aria-describedby="basic-addon3 basic-addon4" (change)="formatearfecha()"  (change)="calcular_dias()" [(ngModel)]="ffin" name="vigencia">
 
+        <p></p>
+        <p>valor total de la tarifa es de: {{tarifa}}</p>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Alquilar</button>
+        <button type="button" class="btn btn-primary" (click)="realizar_alquiler()">Alquilar</button>
       </div>
     </div>
   </div>

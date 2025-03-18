@@ -11,11 +11,13 @@ export class LoguinUsuarioService {
 
   }
 
-  private bdURL = "http://localhost:8080/LoguinUsario/validacion"
+  private bdURL = "http://localhost:8080/LoguinUsario"
   
   
 
   login_Usuario(usuario: String, password: String): Observable<any>{
-    return this.httpClient.get(`${this.bdURL}?usuario=${usuario}&clave=${password}`);
+    return this.httpClient.get(`${this.bdURL}/validacion?usuario=${usuario}&clave=${password}`);
   }
+
+  
 }

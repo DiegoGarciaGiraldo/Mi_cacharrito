@@ -12,6 +12,8 @@ public interface coches_Repositorio extends JpaRepository<coches, String>{
 	List<coches> findByEstado(String estado);
 	
 	List<coches> findByEstadoAndTipoVeh(String est , String tipo);
+
+	public coches findAllByPlaca(String placa);
 	
 	
 	
