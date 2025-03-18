@@ -37,12 +37,9 @@ public class coches_Controlador {
 	
 	
 	@GetMapping("/ListaCoches")
-	public List<coches> listacoches(
-			@RequestParam String tipo
-			){
-		
-		return this.repcoches.findByEstadoAndTipoVeh("disponible",tipo);
-		
+	public List<coches> listacoches() {
+	  
+	        return this.repcoches.findAllByEstado("disponible");
 	}
 	
 	
@@ -59,8 +56,6 @@ public class coches_Controlador {
         
     }
 
- 
-    // Validar si el usuario es administrador
     @GetMapping("/validar")
     private boolean esAdministrador(String usuario, String password) {
         return repAdmin.findByUsuarioAndPassword(usuario, password).isPresent();

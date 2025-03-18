@@ -3,7 +3,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">Mi Cacharrito</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -19,12 +19,12 @@
     
         <div id="logueo">
     
-            <button class="botonesloguin" id="btn1" >Usuario</button>
-            <button class="botonesloguin" id="btn2">Administrador</button>
+            <button class="botonesloguin" id="btn1" (click)="cambiarAUsuario()">Usuario</button>
+            <button class="botonesloguin" id="btn2"(click)="cambiarAAdmin()">Administrador</button>
     
     
     
-            <section id="usuario">
+            <section id="usuario" *ngIf="mostrarUsuario">
     
                 <div class="mb-3">
     
@@ -55,12 +55,12 @@
             </section>
     
             
-            <section id="admin">
+            <section id="admin" *ngIf="mostrarAdmin">
 
                 <div class="mb-3">
-    
+
                     <label for="in-admin" class="form-label">Ingresar como Administrador</label>
-                    <input type="text" class="form-control" id="in-usuario" aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="usuario">
+                    <input type="text" class="form-control" id="in-admin" aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="usuario">
     
                     <label for="basic-url" class="form-label">Ingresar Contraseña</label>
                     <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" [(ngModel)]="password">
