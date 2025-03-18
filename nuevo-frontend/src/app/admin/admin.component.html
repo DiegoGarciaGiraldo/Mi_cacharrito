@@ -1,34 +1,125 @@
-<div class=" funciones">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Mi cacharrito</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <button class="botonesTipo" id="btn1"  (click)="cambiarATipo()" >Tipo de vehículo</button>
+      <button class="botonesAlquiler" id="btn2" (click)="cambiarAAlquiler()">Alquileres</button>
 
-  <button id="gestionar">Gestionar coches</button>
-  <button id="Lista">Ver lista de coches</button>
-  
-
-</div>
-<div class="content">
-    <h2>Estado de los Coches</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Placa</th>
-          <th>Color</th>
-          <th>Tipo de Vehículo</th>
-          <th>Estado</th>
-          <th>Valor de Alquiler</th>
-
-        </tr>
-      </thead>
-      <tbody>
-       
-        <tr *ngFor="let coche of coches">
-          <td>{{ coche.placa }}</td>
-          <td>{{ coche.color }}</td>
-          <td>{{ coche.tipoVeh }}</td>
-          <td>{{ coche.estado }}</td>
-          <td>{{ coche.valorAlq }}</td>
-        </tr>
-      </tbody>
-    </table>
-   
+    </div>
   </div>
+</nav>
+
+
+<section id="vehiculos" *ngIf="mostrarPrincipal" >
+  <div class=" funciones">
+
+    <button id="Disponibles" (click)="cambiarADisponibles()">Ver todos los coches disponibles</button>
+   
+
+  </div>
+
+    <section id="no-disponible" *ngIf="mostrarNoDisponibles">
+
+      <div class="principal">
+        <h2>vehiculos no entregados</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Placa</th>
+              <th>Color</th>
+              <th>Tipo de Vehículo</th>
+              <th>Estado</th>
+              <th>Valor de Alquiler</th>
+    
+            </tr>
+          </thead>
+          <tbody>
+           
+            <tr *ngFor="let coche of coches">
+              <td>{{ coche.placa }}</td>
+              <td>{{ coche.color }}</td>
+              <td>{{ coche.tipoVeh }}</td>
+              <td>{{ coche.estado }}</td>
+              <td>{{ coche.valorAlq }}</td>
+            </tr>
+          </tbody>
+        </table>
+       
+      </div>
+  
+    </section>
+
+    <section id="disponibles" *ngIf="mostrarDisponibles" >
+  
+      <div class="content">
+          <h2>Tipos de vehiculos</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Placa</th>
+                <th>Color</th>
+                <th>Tipo de Vehículo</th>
+                <th>Valor de Alquiler</th>
+      
+              </tr>
+            </thead>
+            <tbody>
+             
+              <tr *ngFor="let coche of coches">
+                <td>{{ coche.placa }}</td>
+                <td>{{ coche.color }}</td>
+                <td>{{ coche.tipoVeh }}</td>
+                <td>{{ coche.valorAlq }}</td>
+              </tr>
+            </tbody>
+          </table>
+         
+        </div>
+    </section>
+
+    <section id="Tipo-vehiculo" *ngIf="mostrarTipo">
+
+      <div class="principal">
+        <h2>vehiculos no entregados</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Placa</th>
+              <th>Color</th>
+              <th>Tipo de Vehículo</th>
+              <th>Estado</th>
+              <th>Valor de Alquiler</th>
+    
+            </tr>
+          </thead>
+          <tbody>
+           
+            <tr *ngFor="let coche of coches">
+              <td>{{ coche.placa }}</td>
+              <td>{{ coche.color }}</td>
+              <td>{{ coche.tipoVeh }}</td>
+              <td>{{ coche.estado }}</td>
+              <td>{{ coche.valorAlq }}</td>
+            </tr>
+          </tbody>
+        </table>
+       
+      </div>
+  
+    </section>
+  
+  
+</section>
+
+
+
+
+
+<section id="Alquiler" *ngIf="mostrarAlquiler" >
+  
+</section>
 
