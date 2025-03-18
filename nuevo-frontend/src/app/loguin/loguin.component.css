@@ -71,3 +71,11 @@ nav{
 #admin{
     display: none;
 }
+
+#admin{
+    padding: 10% 5%;
+    text-align: center;
+    align-items: center;
+    display: block;
+
+}
