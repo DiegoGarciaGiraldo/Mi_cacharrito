@@ -1,6 +1,7 @@
 .content{
     float:right;
-    margin-right: 200px
+    margin-right: 200px;
+    margin-top: 50px;
 
 }
 
@@ -12,23 +13,27 @@ h2{
 .funciones{
     background-color: rgb(225, 225, 225);
     width: 300px;
-    height: 200px;
+    height: 50px;
     margin-left: 200px;
-    margin-top: 210px;
+    margin-top: 180px;
     float: left;
+
 }
 
-#gestionar{
+.principal{
 
     float:right;
+    margin-left:400px;
     margin-top: 50px;
-    margin-right: 80px;
 
 }
 
-#Lista{
+#Disponibles{
+
     float:right;
-    margin-top: 50px;
-    margin-right: 75px;
+    margin-top: 10px;
+    margin-right: 25px;
+    width: 250px;
 
 }
+

@@ -62,7 +62,6 @@ public class coches_Controlador {
     }
 	
 
-    // cambiar el estado de un coche
     
     public coches cambiarEstado(coches vehiculo, String estado) {
     	
