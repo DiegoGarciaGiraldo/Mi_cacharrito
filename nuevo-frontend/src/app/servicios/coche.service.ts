@@ -16,6 +16,6 @@ export class CocheService {
     
   
     vehiculos_disponibles(tipo: string): Observable<any>{
-      return this.httpClient.get(`${this.bdURL}/ListaCoches?tipo=${tipo}`);
+      return this.httpClient.get(`${this.bdURL}/filtros?tipo=${tipo}`);
     }
 }
