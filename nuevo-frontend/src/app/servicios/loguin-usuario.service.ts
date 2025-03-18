@@ -19,4 +19,3 @@ export class LoguinUsuarioService {
     return this.httpClient.get(`${this.bdURL}/validacion?usuario=${usuario}&clave=${password}`);
   }
 
-}
