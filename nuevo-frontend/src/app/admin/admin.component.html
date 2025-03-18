@@ -1,0 +1,34 @@
+<div class=" funciones">
+
+  <button id="gestionar">Gestionar coches</button>
+  <button id="Lista">Ver lista de coches</button>
+  
+
+</div>
+<div class="content">
+    <h2>Estado de los Coches</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Placa</th>
+          <th>Color</th>
+          <th>Tipo de Vehículo</th>
+          <th>Estado</th>
+          <th>Valor de Alquiler</th>
+
+        </tr>
+      </thead>
+      <tbody>
+       
+        <tr *ngFor="let coche of coches">
+          <td>{{ coche.placa }}</td>
+          <td>{{ coche.color }}</td>
+          <td>{{ coche.tipoVeh }}</td>
+          <td>{{ coche.estado }}</td>
+          <td>{{ coche.valorAlq }}</td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>
+
