@@ -39,7 +39,7 @@ public class coches_Controlador {
 	@GetMapping("/ListaCoches")
 	public List<coches> listacoches() {
 	  
-	        return this.repcoches.findAllByEstado("disponible");
+	        return this.repcoches.findByEstado("disponible");
 	}
 	
 	
