@@ -23,6 +23,11 @@ export class LoguinAdminService {
     obtenerListaCoches(): Observable<Coche[]>{
       return this.httpClient.get<Coche[]>(`${this.carURL}`);
     }
+
+    private carrURL = "http://localhost:8080/ver/coches/ListaCochesNodisponibles"
+    obtenerListaCochesNoDisponibles(): Observable<Coche[]>{
+      return this.httpClient.get<Coche[]>(`${this.carrURL}`);
+    }
   
 
   

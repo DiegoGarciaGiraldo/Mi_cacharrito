@@ -6,6 +6,10 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class CocheService {
+  obtenerCochesOcupados() {
+    throw new Error('Method not implemented.');
+  }
+  obtenerListaCoches: any;
 
   constructor(private httpClient: HttpClient){
   
@@ -15,7 +19,23 @@ export class CocheService {
     
     
   
-    vehiculos_disponibles(tipo: string): Observable<any>{
-      return this.httpClient.get(`${this.bdURL}/filtros?tipo=${tipo}`);
-    }
+  
+
+  buscarCoche(placa: string): Observable<any> {
+    return this.httpClient.get(`${this.bdURL}/buscar?placa=${placa}`);
+  }
+
+  actualizarEstado(placa: string, estado: string): Observable<any> {
+    return this.httpClient.post(`${this.bdURL}/actualizarEstado?placa=${placa}&estado=${estado}`, {});
+  }
+
+  vehiculos_disponibles(tipoVeh: string): Observable<any>{
+    return this.httpClient.get(`${this.bdURL}/filtros?tipo=${tipoVeh}`);
+  }
+
+  vehiculos_ocupados(tipoVeh: string): Observable<any>{
+    return this.httpClient.get(`${this.bdURL}/ocupados?tipo=${tipoVeh}`);
+  }
+
+    
 }

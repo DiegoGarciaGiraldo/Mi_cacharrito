@@ -9,6 +9,7 @@ import { Alquiler } from '../entidades/alquiler';
 
 import jsPDF from 'jspdf';
 
+
 @Component({
   selector: 'app-usuario',
   standalone: true,
@@ -141,6 +142,7 @@ export class UsuarioComponent implements OnInit {
 
       if(dato){
         alert( "solicitud de alquiler exitosa")
+
         this.alquiler=dato;
         this.descargar_pdf()
 
