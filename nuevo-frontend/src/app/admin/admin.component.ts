@@ -57,6 +57,7 @@ export class AdminComponent implements OnInit {
     this.mostrarPrincipal = true;
     this.mostrarTipo = this.mostrarAlquiler = false;
     this.mostrarNoDisponibles = true;
+    this.mostrarDisponibles = false;
 
   }
 
