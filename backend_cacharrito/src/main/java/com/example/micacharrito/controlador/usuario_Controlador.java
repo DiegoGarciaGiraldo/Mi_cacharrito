@@ -22,7 +22,6 @@ public class usuario_Controlador {
 	
 	public usuario logueado ;
 	
-	// funcion para encontrar un usuario y su clave
 	@GetMapping("/validacion")
 	public boolean validacionloguin(@RequestParam String usuario, @RequestParam String clave) {
 		
@@ -39,7 +38,7 @@ public class usuario_Controlador {
 		
 	}
 	
-	// funcion para registrar un nuevo usuario
+
 	
 	public usuario crear_Usuario(@RequestParam String usuario, @RequestParam String clave) {
 		
@@ -59,8 +58,6 @@ public class usuario_Controlador {
 	
 	
 
-	// funcion que toma el usuario ya logueado
-	
 	@GetMapping("/logueo")
 	public usuario loguin() {			
 			return logueado;

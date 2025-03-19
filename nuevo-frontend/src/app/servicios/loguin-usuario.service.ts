@@ -18,4 +18,4 @@ export class LoguinUsuarioService {
   login_Usuario(usuario: String, password: String): Observable<any>{
     return this.httpClient.get(`${this.bdURL}/validacion?usuario=${usuario}&clave=${password}`);
   }
-
+}
