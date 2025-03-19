@@ -4,6 +4,10 @@ import { Coche } from '../entidades/coche';
 import { CommonModule } from '@angular/common';
 import { CocheService } from '../servicios/coche.service';
 import { FormsModule } from '@angular/forms';
+import { Alquiler } from '../entidades/alquiler';
+import { AlquilerService } from '../servicios/alquiler.service';
+
+import { differenceInDays } from 'date-fns'; 
 
 @Component({
   selector: 'app-admin',
@@ -14,14 +18,24 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminComponent implements OnInit {
 
+  ngOnInit(): void {
+    this.ocultar_loguin('none')
+    this.verCochesNoDisponibles();
+    this.ver_alquileres()
+  }
+
   coches: Coche[] = [];
+
+  alquiler: Alquiler= new Alquiler;
 
   tipo!: string;
 
   placa: string = '';
   vehiculo: any = null;
 
+  coche!: Coche;
 
+  fechaActual = new Date();
 
   mostrarPrincipal: boolean = true;
 
@@ -35,6 +49,9 @@ export class AdminComponent implements OnInit {
   
   mostrarBuscarPlaca: boolean = false;
 
+  alquileres!: Alquiler[];
+
+  recargo!:number;
 
   cambiarAPrincipal() {
     this.mostrarPrincipal = true;
@@ -77,12 +94,9 @@ export class AdminComponent implements OnInit {
   
 
 
-  ngOnInit(): void {
-    this.ocultar_loguin('none')
-    this.verCochesNoDisponibles();
-  }
+  
 
-  constructor(private admin_serv: LoguinAdminService, private servicioCoche: CocheService) {}
+  constructor(private admin_serv: LoguinAdminService, private servicioCoche: CocheService, private servicioAlquiler:AlquilerService) {}
 
   ocultar_loguin(valor:string){
 
@@ -166,6 +180,53 @@ export class AdminComponent implements OnInit {
   }
 
 
+  ver_alquileres(){
+    this.servicioAlquiler.todos_alquileres().subscribe(dato=>{
+
+      this.alquileres=dato
+
+      console.log(this.alquileres)
+    })
+  }
+
+  mora(id:number){
+
+    const encontrado = this.alquileres.find(buscado => buscado.numeroAlquiler === id);
+    const modal = document.getElementById("exampleModal")
+   
+
+    if (encontrado && (encontrado.estadoAlq != "terminado")) {
+      
+      modal!.style.display='block';
+      this.alquiler = encontrado;
+      console.log(this.alquiler)
+      this.calcular_mora()
+    } else {
+
+      alert("no se encuentra en mora el alquiler");
+      this.alquiler = new Alquiler();
+      this.recargo=0;
+
+      
+    }
+
+  }
+
+  calcular_mora(){
+
+    var act= this.fechaActual
+    var final = this.alquiler.fechaFinal
+
+    var dias= differenceInDays(act, final);
+
+
+    this.recargo = this.alquiler.coche.valorAlq*dias;
+
+
+
+  }
 
 
 }
+
+

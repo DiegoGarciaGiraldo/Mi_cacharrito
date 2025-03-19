@@ -33,6 +33,11 @@ export class AlquilerService {
         );
       }
 
+      todos_alquileres(): Observable<any>{
+        return this.httpClient.get(`${this.bdURL}/todosalquileres`
+        );
+      }
+
       eliminar_alquiler(
         id: number,
         placa: string,
