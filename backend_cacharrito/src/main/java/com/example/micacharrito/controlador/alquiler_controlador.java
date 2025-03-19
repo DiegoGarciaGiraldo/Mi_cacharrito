@@ -106,6 +106,15 @@ public class alquiler_controlador {
 	}
 	
 	
+	@GetMapping("/todosalquileres")
+	public List<alquiler> listaalquileres() {
+		
+		
+		
+		return this.repAlquiler.findAll();
+	}
+	
+	
 	
 
 }

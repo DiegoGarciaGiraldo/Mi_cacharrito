@@ -158,6 +158,61 @@
 
 
 <section id="Alquiler" *ngIf="mostrarAlquiler" >
+
+  <table id="alquileres" class="table">
+    <thead class="table-dark">
+      <tr>
+        <td>Alquiler #</td>
+        <td>coche placa</td>
+        <td>Fecha de inicio</td>
+        <td>Fecha final</td>
+        <td>Estado Alquiler</td>
+        <td>Valor del alquiler</td>
+        <td>Cancelar alquiler</td>
+      </tr>
+
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of alquileres">
+        <td>{{item.numeroAlquiler}}</td>
+        <td>{{item.coche.placa}}</td>
+        <td>{{item.fechaInicio}}</td>
+        <td>{{item.fechaFinal}}</td>
+        <td>{{item.estadoAlq}}</td>
+        <td>{{item.costoTotal}}</td>
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="mora(item.numeroAlquiler)" > ver si esta en mora</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Reacrgo del alquiler</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <p>fecha de inicio del alquiler :  {{alquiler.fechaInicio}}</p>
+        <p>fecha de fin del alquiler :  {{alquiler.fechaFinal}}</p>
+        <p>tarifa establecida :  {{alquiler.costoTotal}}</p>
+        <p>recargo por dia :  {{recargo}}</p>
+
+
+        
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
   
 </section>
 
