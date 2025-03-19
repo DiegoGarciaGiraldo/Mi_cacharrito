@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { differenceInDays } from 'date-fns'; 
 import { AlquilerService } from '../servicios/alquiler.service';
 import { Alquiler } from '../entidades/alquiler';
-
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
 (<any>pdfMake).addVirtualFileSystem(pdfFonts);
+import jsPDF from 'jspdf';
+
 
 @Component({
   selector: 'app-usuario',
@@ -144,6 +145,8 @@ export class UsuarioComponent implements OnInit {
 
       if(dato){
         alert( "solicitud de alquiler exitosa")
+
+        this.alquiler=dato;
         this.descargar_pdf()
 
         window.location.reload()
