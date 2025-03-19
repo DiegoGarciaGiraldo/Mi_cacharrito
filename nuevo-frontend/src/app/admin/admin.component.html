@@ -158,6 +158,33 @@
 
 
 <section id="Alquiler" *ngIf="mostrarAlquiler" >
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <td>Alquiler #</td>
+        <td>coche placa</td>
+        <td>Fecha de inicio</td>
+        <td>Fecha final</td>
+        <td>Estado Alquiler</td>
+        <td>Valor del alquiler</td>
+        <td>Cancelar alquiler</td>
+      </tr>
+
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of alquileres">
+        <td>{{item.numeroAlquiler}}</td>
+        <td>{{item.coche.placa}}</td>
+        <td>{{item.fechaInicio}}</td>
+        <td>{{item.fechaFinal}}</td>
+        <td>{{item.estadoAlq}}</td>
+        <td>{{item.costoTotal}}</td>
+      </tr>
+    </tbody>
+  </table>
+
   
 </section>
 

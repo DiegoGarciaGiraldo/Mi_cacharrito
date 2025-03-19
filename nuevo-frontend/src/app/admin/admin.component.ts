@@ -4,6 +4,8 @@ import { Coche } from '../entidades/coche';
 import { CommonModule } from '@angular/common';
 import { CocheService } from '../servicios/coche.service';
 import { FormsModule } from '@angular/forms';
+import { Alquiler } from '../entidades/alquiler';
+import { AlquilerService } from '../servicios/alquiler.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,6 +15,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent implements OnInit {
+
+  ngOnInit(): void {
+    this.ocultar_loguin('none')
+    this.verCochesNoDisponibles();
+    this.ver_alquileres()
+  }
 
   coches: Coche[] = [];
 
@@ -35,6 +43,7 @@ export class AdminComponent implements OnInit {
   
   mostrarBuscarPlaca: boolean = false;
 
+  alquileres!: Alquiler[];
 
   cambiarAPrincipal() {
     this.mostrarPrincipal = true;
@@ -77,12 +86,9 @@ export class AdminComponent implements OnInit {
   
 
 
-  ngOnInit(): void {
-    this.ocultar_loguin('none')
-    this.verCochesNoDisponibles();
-  }
+  
 
-  constructor(private admin_serv: LoguinAdminService, private servicioCoche: CocheService) {}
+  constructor(private admin_serv: LoguinAdminService, private servicioCoche: CocheService, private servicioAlquiler:AlquilerService) {}
 
   ocultar_loguin(valor:string){
 
@@ -166,6 +172,16 @@ export class AdminComponent implements OnInit {
   }
 
 
+  ver_alquileres(){
+    this.servicioAlquiler.mis_alquileres().subscribe(dato=>{
+
+      this.alquileres=dato
+
+      console.log(this.alquileres)
+    })
+  }
 
 
 }
+
+
