@@ -7,7 +7,10 @@ import { differenceInDays } from 'date-fns';
 import { AlquilerService } from '../servicios/alquiler.service';
 import { Alquiler } from '../entidades/alquiler';
 
-import jsPDF from 'jspdf';
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+
+(<any>pdfMake).addVirtualFileSystem(pdfFonts);
 
 @Component({
   selector: 'app-usuario',
@@ -141,7 +144,6 @@ export class UsuarioComponent implements OnInit {
 
       if(dato){
         alert( "solicitud de alquiler exitosa")
-        this.alquiler=dato;
         this.descargar_pdf()
 
         window.location.reload()
@@ -178,23 +180,32 @@ export class UsuarioComponent implements OnInit {
   }
 
   descargar_pdf(){
-    const doc = new jsPDF()
 
 
-    doc.text(`Gracia por alquilar este vehiculo "Mi Cacharrito se lo agaradece"`,20,10)
-    doc.text(`Aqui teiene la informacion de su alquiler:"`,20,20)
-    doc.text(`numero de alquiler = ${this.alquiler.numeroAlquiler}`,20,30)
-    doc.text(`fecha de reclamo =${this.alquiler.fechaInicio}`,20,40)
-    doc.text(`fecha de entrega =${this.alquiler.fechaFinal}`,20,50)
-    doc.text(`placa del vehiculo${this.alquiler.coche.placa}`,20,60)
-    doc.text(`tipo = ${this.alquiler.coche.tipoVeh}`,20,70)
-    doc.text(`color = ${this.alquiler.coche.color}`,20,80)
-    doc.text(`A nombre de = ${this.alquiler.persona.nombre} ${this.alquiler.persona.apellido}`,20,90)
-
-    doc.save(`alquiler.pdf`)
-
-
-
+    var fonts = {
+      Roboto: {
+        normal: 'fonts/Roboto-Regular.ttf',
+        bold: 'fonts/Roboto-Medium.ttf',
+        italics: 'fonts/Roboto-Italic.ttf',
+        bolditalics: 'fonts/Roboto-MediumItalic.ttf'
+      }
+    };
+    
+    var PdfPrinter = require('pdfmake');
+    var printer = new PdfPrinter(fonts);
+    var fs = require('fs');
+    
+    var docDefinition = {
+      contenido :["hola"]
+    };
+    
+    var options = {
+      // ...
+    }
+    
+    var pdfDoc = printer.createPdfKitDocument(docDefinition, options);
+    pdfDoc.pipe(fs.createWriteStream('document.pdf'));
+    pdfDoc.end();
 
   }
 }
