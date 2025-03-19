@@ -42,6 +42,13 @@ public class coches_Controlador {
 	        return this.repcoches.findByEstado("disponible");
 	}
 	
+	@GetMapping("/ListaCochesNodisponibles")
+	public List<coches> listacochesnodisponibles() {
+	  
+	        return this.repcoches.findByEstado("ocupado");
+	}
+	
+	
 	
 	@GetMapping("/filtros")
 	public List<coches> listacoches(@RequestParam String tipo) {
