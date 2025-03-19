@@ -1,6 +1,6 @@
 import { LoguinAdminService } from '../servicios/loguin-admin.service';
 import { Component, OnInit } from '@angular/core';
-import { Coche } from '../entidades/coches';
+import { Coche } from '../entidades/coche';
 import { CommonModule } from '@angular/common';
 import { CocheService } from '../servicios/coche.service';
 import { FormsModule } from '@angular/forms';

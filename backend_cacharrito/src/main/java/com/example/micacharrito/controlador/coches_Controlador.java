@@ -46,8 +46,8 @@ public class coches_Controlador {
 	@GetMapping("/filtros")
 	public List<coches> listacoches(@RequestParam String tipo) {
 		
-	  
 	        return this.repcoches.findByEstadoAndTipoVeh("disponible", tipo);
+	        
 	}
 	
 	@GetMapping("/ocupados")
