@@ -50,6 +50,13 @@ public class coches_Controlador {
 	        return this.repcoches.findByEstadoAndTipoVeh("disponible", tipo);
 	}
 	
+	@GetMapping("/ocupados")
+	public List<coches> ocupados(@RequestParam String tipo) {
+		
+	  
+	        return this.repcoches.findByEstadoAndTipoVeh("ocupado", tipo);
+	}
+	
 	@PostMapping("/alquilados")
     public List<coches> obtenerVehiculosAlquilados(@RequestParam String usuario, @RequestParam String password) {
         if (!esAdministrador(usuario, password)) {
@@ -77,5 +84,24 @@ public class coches_Controlador {
     	this.repcoches.save(vehiculo);
     	
     	return vehiculo;
+    }
+    
+    
+    
+    @GetMapping("/buscar")
+    public coches buscarVehiculo(@RequestParam String placa) {
+        return this.repcoches.findById(placa).orElse(null);
+    }
+
+  
+    @PostMapping("/actualizarEstado")
+    public String actualizarEstado(@RequestParam String placa, @RequestParam String estado) {
+        coches cochecito = repcoches.findById(placa).orElse(null);
+        if (cochecito != null) {
+        	cochecito.setEstado(estado);
+            repcoches.save(cochecito);
+            return "Estado actualizado correctamente";
+        }
+        return "No se pudo actualizar el estado";
     }
 }

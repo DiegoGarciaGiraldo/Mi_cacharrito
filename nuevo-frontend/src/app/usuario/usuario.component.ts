@@ -7,10 +7,6 @@ import { differenceInDays } from 'date-fns';
 import { AlquilerService } from '../servicios/alquiler.service';
 import { Alquiler } from '../entidades/alquiler';
 
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
-
-(<any>pdfMake).addVirtualFileSystem(pdfFonts);
 
 @Component({
   selector: 'app-usuario',
@@ -139,7 +135,7 @@ export class UsuarioComponent implements OnInit {
 
       if(dato){
         alert( "solicitud de alquiler exitosa")
-        this.descargar_pdf()
+
 
         window.location.reload()
       }else{
@@ -174,33 +170,5 @@ export class UsuarioComponent implements OnInit {
     })
   }
 
-  descargar_pdf(){
-
-
-    var fonts = {
-      Roboto: {
-        normal: 'fonts/Roboto-Regular.ttf',
-        bold: 'fonts/Roboto-Medium.ttf',
-        italics: 'fonts/Roboto-Italic.ttf',
-        bolditalics: 'fonts/Roboto-MediumItalic.ttf'
-      }
-    };
-    
-    var PdfPrinter = require('pdfmake');
-    var printer = new PdfPrinter(fonts);
-    var fs = require('fs');
-    
-    var docDefinition = {
-      contenido :["hola"]
-    };
-    
-    var options = {
-      // ...
-    }
-    
-    var pdfDoc = printer.createPdfKitDocument(docDefinition, options);
-    pdfDoc.pipe(fs.createWriteStream('document.pdf'));
-    pdfDoc.end();
-
-  }
+ 
 }

@@ -6,6 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
+      <button class="botonesPrincipal" id="btn2" (click)="cambiarAPrincipal()">Principal</button>
       <button class="botonesTipo" id="btn1"  (click)="cambiarATipo()" >Tipo de vehículo</button>
       <button class="botonesAlquiler" id="btn2" (click)="cambiarAAlquiler()">Alquileres</button>
 
@@ -17,15 +18,16 @@
 <section id="vehiculos" *ngIf="mostrarPrincipal" >
   <div class=" funciones">
 
-    <button id="Disponibles" (click)="cambiarADisponibles()">Ver todos los coches disponibles</button>
-   
-
+    <button id="Disponibles" (click)="verCoches()" (click)="cambiarADisponible()">Ver todos los coches disponibles</button>
+    <button id="No-Disponibles" (click)="verCochesNoDisponibles()" (click)="cambiarANoDisponible()">Ver todos los coches ocupados</button>
+    <button id="Buscar-placa" (click)="cambiarABuscarPlaca()" (click)="buscarVehiculo()">Buscar por placa</button>
+  
   </div>
 
     <section id="no-disponible" *ngIf="mostrarNoDisponibles">
 
       <div class="principal">
-        <h2>vehiculos no entregados</h2>
+        <h2>Ocupados</h2>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -53,26 +55,28 @@
   
     </section>
 
-    <section id="disponibles" *ngIf="mostrarDisponibles" >
+    <section id="disponibles"  *ngIf="mostrarDisponibles" >
   
       <div class="content">
-          <h2>Tipos de vehiculos</h2>
+          <h2>Coches disponibles</h2>
           <table class="table table-striped">
             <thead>
               <tr>
                 <th>Placa</th>
                 <th>Color</th>
                 <th>Tipo de Vehículo</th>
+                <th>Estado</th>
                 <th>Valor de Alquiler</th>
       
               </tr>
             </thead>
             <tbody>
-             
+           
               <tr *ngFor="let coche of coches">
                 <td>{{ coche.placa }}</td>
                 <td>{{ coche.color }}</td>
                 <td>{{ coche.tipoVeh }}</td>
+                <td>{{ coche.estado }}</td>
                 <td>{{ coche.valorAlq }}</td>
               </tr>
             </tbody>
@@ -81,40 +85,74 @@
         </div>
     </section>
 
-    <section id="Tipo-vehiculo" *ngIf="mostrarTipo">
-
-      <div class="principal">
-        <h2>vehiculos no entregados</h2>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Placa</th>
-              <th>Color</th>
-              <th>Tipo de Vehículo</th>
-              <th>Estado</th>
-              <th>Valor de Alquiler</th>
-    
-            </tr>
-          </thead>
-          <tbody>
-           
-            <tr *ngFor="let coche of coches">
-              <td>{{ coche.placa }}</td>
-              <td>{{ coche.color }}</td>
-              <td>{{ coche.tipoVeh }}</td>
-              <td>{{ coche.estado }}</td>
-              <td>{{ coche.valorAlq }}</td>
-            </tr>
-          </tbody>
-        </table>
+    <section *ngIf="mostrarBuscarPlaca">
+      <div class="buscar">
+        <h2>Administrador - Entrega de Vehículos</h2>
+      
+       <div id = busqueda>
+        <label for="placa">Placa del Vehículo:</label>
+        <input type="text" [(ngModel)]="placa">
+        <button (click)="buscarVehiculo()">Buscar</button>
+      
        
+        <div id= "info" *ngIf="vehiculo">
+          <h3>Información del Vehículo</h3>
+          <p><strong>Placa:</strong> {{ vehiculo.placa }}</p>
+          <p><strong>Estado:</strong> {{ vehiculo.estado }}</p>
+      
+          
+          
+          <button (click)="marcarComoEntregado()" *ngIf="vehiculo.estado !== 'entregado'">Marcar como Entregado</button>
+        </div>
+        </div>
       </div>
-  
     </section>
+  
+
   
   
 </section>
 
+
+<section id="Tipo-vehiculo" *ngIf="mostrarTipo">
+
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">seleccionar vehiculo</label>
+    <select class="form-select" id="inputGroupSelect01" [(ngModel)]="tipo">
+      <option selected>seleccionar</option>
+      <option value="Automovil">Automovil</option>
+      <option value="Camioneta">Camioneta</option>
+      <option value="Campero">Campero</option>
+      <option value="Motocicleta">Motocicleta</option>
+      <option value="Microbus">Microbus</option>
+    </select>
+
+    <button class="btn btn-outline-secondary" type="button" (click)="ver_coches()">Seleccionar</button>
+  </div>
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <td>Placa</td>
+        <td>Color</td>
+        <td>Tipo de vehículo</td>
+        <td>Valor por dia</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of coches">
+        <td>{{item.placa}}</td>
+        <td>{{item.color}}</td>
+        <td>{{item.tipoVeh}}</td>
+        <td>{{item.valorAlq}}</td>
+
+    </tbody>
+  </table>
+
+  
+
+</section>
 
 
 
